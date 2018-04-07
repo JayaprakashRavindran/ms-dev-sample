@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+import javax.inject.Named;
+
 import org.springframework.stereotype.Service;
 
 import com.techm.ms.model.User;
 
 @Service("userService")
+@Named
 public class UserServiceImpl implements UserService{
 	
 	private static final AtomicLong counter = new AtomicLong();
