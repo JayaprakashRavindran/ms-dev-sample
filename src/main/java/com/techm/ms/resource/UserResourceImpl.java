@@ -16,7 +16,7 @@ import com.techm.ms.service.UserService;
 @Controller
 public class UserResourceImpl implements UserResource {
 
-	public static final Logger logger = LoggerFactory.getLogger(AccountResourceImpl.class);
+	public static final Logger logger = LoggerFactory.getLogger(UserResourceImpl.class);
 
 	@Autowired
 	UserService userService; //Service which will do all data retrieval/manipulation work
