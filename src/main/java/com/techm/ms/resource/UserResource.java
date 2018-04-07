@@ -1,15 +1,17 @@
 package com.techm.ms.resource;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.techm.ms.model.User;
 import com.techm.ms.model.swagger.AccountResponse;
@@ -26,12 +28,12 @@ import io.swagger.annotations.ApiResponses;
 @Api("user")
 @Path("/user")
 @Produces({MediaType.APPLICATION_JSON})
+@RestController
 public interface UserResource {
 	/**
      * Service definition which returns user for given userID
      * @return User - Returns the details of the user being queried
      */
-	@GET
 	@Produces({MediaType.APPLICATION_JSON})
 	@Consumes({MediaType.APPLICATION_JSON})
 	@ApiOperation(
@@ -44,13 +46,13 @@ public interface UserResource {
 					@ApiResponse(code = 400, message = "BAD REQUEST"),		
 					@ApiResponse(code = 404, message = "NOT_FOUND")		
 					})
-	    public @ResponseBody ResponseEntity<User> getUser(String request);
+	 @RequestMapping(value = "/user/{userID}", method = RequestMethod.GET)
+	public @ResponseBody ResponseEntity<User> getUser(@PathVariable String userID);
 	
 	/**
      * Service definition which creates the user for given user object
      * @return User - Created Status
      */
-	@POST
 	@Produces({MediaType.APPLICATION_JSON})
 	@Consumes({MediaType.APPLICATION_JSON})
 	@ApiOperation(
@@ -62,6 +64,7 @@ public interface UserResource {
 					@ApiResponse(code = 201, message = "CREATED"),
 					@ApiResponse(code = 409, message = "CONFLICTED")					
 					})
-	public @ResponseBody ResponseEntity<User> createUser(@RequestBody User user);
+	 @RequestMapping(value = "/user", method = RequestMethod.POST)
+	   public @ResponseBody ResponseEntity<User> createUser(@RequestBody User user);
 
 }

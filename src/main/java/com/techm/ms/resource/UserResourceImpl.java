@@ -26,8 +26,8 @@ public class UserResourceImpl implements UserResource {
 
 	
 	@Override
-	public ResponseEntity<User> getUser(String request) {
-		User user = userService.findById(Long.valueOf(request));
+	public ResponseEntity<User> getUser(String userID) {
+		User user = userService.findById(Long.valueOf(userID));
 		
 		ResponseEntity<User> response = new ResponseEntity<User>(user,HttpStatus.OK);
 		return response;
