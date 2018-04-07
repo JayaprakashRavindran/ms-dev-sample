@@ -1,8 +1,13 @@
 package com.techm.ms.exception;
 
-public class CustomError {
+public class CustomError extends RuntimeException{
 
-    private String errorMessage;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	private String errorMessage;
     
     private String errorCode;
 

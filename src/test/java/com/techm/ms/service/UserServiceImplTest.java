@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.techm.ms.exception.CustomError;
 import com.techm.ms.model.User;
 
 /**
@@ -34,6 +35,7 @@ public class UserServiceImplTest {
 	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		userService = null;
 	}
 
 	/**
@@ -54,7 +56,7 @@ public class UserServiceImplTest {
 	 * Test method for {@link com.techm.ms.service.UserServiceImpl#createUser(com.techm.ms.model.User)}.
 	 */
 	@Test
-	public void testCreateUser() {
+	public void testCreateUser4() throws CustomError{
 		User user4 = new User(4,"User4", 20, 4);
 		userService.createUser(user4);
 	}

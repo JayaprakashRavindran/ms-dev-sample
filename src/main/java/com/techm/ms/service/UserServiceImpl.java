@@ -4,8 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
+
 import org.springframework.stereotype.Service;
 
+import com.techm.ms.exception.CustomError;
 import com.techm.ms.model.User;
 
 @Service("userService")
@@ -21,8 +23,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void createUser(User user) {
+	public void createUser(User user) throws CustomError {
 		counter.incrementAndGet();
+		if(users.contains(user)) {
+			throw new CustomError("Unable to create. A Account with name already exist", "409");
+		}
 		users.add(user);
 	}
 

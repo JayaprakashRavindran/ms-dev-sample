@@ -33,7 +33,7 @@ public class UserResourceComponentTest {
 
 	@Before
 	public void setUp() throws Exception {
-		RestAssured.baseURI = "http://" + InetAddress.getLocalHost().getHostName() + ":" + randomServerPort + "/api";
+		RestAssured.baseURI = "http://" + InetAddress.getLocalHost().getHostName() + ":" + randomServerPort + "/";
 	}
 	
 	private  RequestSpecification givenBaseSpec() {
