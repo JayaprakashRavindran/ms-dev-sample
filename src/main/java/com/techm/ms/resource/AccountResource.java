@@ -7,7 +7,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import com.techm.ms.model.swagger.AccountResponse;
+import com.techm.ms.service.UserService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -23,7 +26,7 @@ import io.swagger.annotations.ApiResponses;
 @Produces({MediaType.APPLICATION_JSON})
 public interface AccountResource {
 	
-    /**
+	/**
      * Service definition which returns all the accounts
      * @return User - Returns the details of the accounts being searched
      */
@@ -41,4 +44,5 @@ public interface AccountResource {
 					})
 	public Response findAllAccounts();
 	
+		
 }
