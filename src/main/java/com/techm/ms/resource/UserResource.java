@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiResponses;
 
 /**
  * This is the Interface definition for User Resource
- * 
+ * @author Kavita Gupta  
  */
 @Api("user")
 @Path("/users")

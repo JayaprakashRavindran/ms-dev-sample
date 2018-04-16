@@ -16,6 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.techm.ms.model.User;
 import com.techm.ms.service.UserService;
 
+/**
+ * This class is the implementation of the interface UserResource. 
+ * Its purpose is to provide restful endpoints to create, search, and delete an user.
+ * @author Kavita Gupta
+ * @date April 16, 2018
+ * @version 1.0.0
+ */
 @RestController
 public class UserResourceImpl implements UserResource {
 	private static final Logger logger = LoggerFactory.getLogger(UserResourceImpl.class); 
@@ -28,10 +35,14 @@ public class UserResourceImpl implements UserResource {
 	@Autowired
 	private UserService userService;
 	
-	
+	/**
+	 * This method is a Post end point to create a new user given the user details in the request body.
+	 * @param user  the request body with the User details 
+	 * @return response with success status if the user created or conflict is user with given name exists
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override	
-	@PostMapping(path="/users")
+	@PostMapping(path="/users")	
 	public ResponseEntity<User> createUser(@RequestBody User user){
 		logger.debug("Inside createUser");
 		if(userService.findByName(user.getName()) != null){
@@ -41,6 +52,11 @@ public class UserResourceImpl implements UserResource {
 		return new ResponseEntity<User>(HttpStatus.CREATED);
 	}
 	
+	/**
+	 * This method is a Get end point to find a user given the user id as a path variable.
+	 * @param id  a long user id 
+	 * @return response with the user details and status as found otherwise not found status if user does not exist
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@GetMapping(path = "/users/{id}")
 	public ResponseEntity<User> getUser(@PathVariable long id){
@@ -53,6 +69,10 @@ public class UserResourceImpl implements UserResource {
 		return new ResponseEntity<User>(user, HttpStatus.FOUND);
 	}
 	
+	/**
+	 * This method is a Get end point to get list of all the users.	
+	 * @return response as ReponseEntity with the list of all users
+	 */
 	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@GetMapping(path = "/users")
 	public ResponseEntity<List<User>> getAllUsers(){
@@ -63,11 +83,15 @@ public class UserResourceImpl implements UserResource {
 		return new ResponseEntity<List<User>>(userList, HttpStatus.FOUND);
 	}
 
+	/**
+	 * This method is a Delete end point to delete a user given the user id.
+	 * @param id  a long user id 	
+	 * @return response as ReponseEntity with the details of the user deleted and a status of OK
+	 */
 	@DeleteMapping(path = "/users/{id}")
 	public ResponseEntity<User> deleteUser(@PathVariable long id) {
 		User deletedUser = userService.deleteUser(id);	
 		return new ResponseEntity<User>(deletedUser, HttpStatus.OK);
-	}
-	
+	}	
 	
 }
