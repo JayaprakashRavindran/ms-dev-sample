@@ -5,8 +5,7 @@ import java.io.Serializable;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 
-@ApiModel(value = "User",
-description = "An User domain object")
+@ApiModel(value = "User", description = "An User domain object")
 public class User implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
