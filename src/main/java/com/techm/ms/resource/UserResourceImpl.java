@@ -1,5 +1,6 @@
 package com.techm.ms.resource;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Component;
@@ -13,6 +14,7 @@ public class UserResourceImpl implements UserResource {
 	public static List<User> list;
 	
 	static {
+		list = new ArrayList<>();
 		//User u = new User(1, "rituraj",20, 1111);
 		
 	}
