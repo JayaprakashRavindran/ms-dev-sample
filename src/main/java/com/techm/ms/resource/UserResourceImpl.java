@@ -15,7 +15,8 @@ public class UserResourceImpl implements UserResource {
 	
 	static {
 		list = new ArrayList<>();
-		//User u = new User(1, "rituraj",20, 1111);
+		User u = new User(1, "rituraj",20, 1111);
+		list.add(u);
 		
 	}
 	

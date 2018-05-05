@@ -24,7 +24,7 @@ public class UserTest {
 	}
 
 	@Test
-	public void addUserifNotExists() {
+	public void NoaddUserifExists() {
 		UserResourceImpl uri = new UserResourceImpl();
 		ReflectionTestUtils.setField(uc,"us",uri);
 		ResponseEntity<String> r = uc.addUser(1214,"ritu",25,1001);
@@ -32,10 +32,10 @@ public class UserTest {
 	}
 	
 	@Test
-	public void NoaddUserifExists() {
+	public void addUserifNotExists() {
 		UserResourceImpl uri = new UserResourceImpl();
 		ReflectionTestUtils.setField(uc,"us",uri);
-		ResponseEntity<String> r = uc.addUser(1214,"ritu",25,1001);
+		ResponseEntity<String> r = uc.addUser(1214,"rituraj",25,1001);
 		assertEquals(r.getStatusCode(),HttpStatus.CONFLICT);
 	}
 	
