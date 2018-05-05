@@ -17,11 +17,12 @@ public class UserController {
     @Autowired
 	UserResourceImpl us;
 	
-	@RequestMapping(value = "/create/{id}/{name}/{age}/{acountid}",method = RequestMethod.POST)
+	@RequestMapping(value = "/create/{id}/{name}/{age}/{accountid}",method = RequestMethod.POST)
 	public ResponseEntity<String> addUser(@PathVariable("id") long id, @PathVariable("name") String name,
-			@PathVariable("age") int age,@PathVariable("accountid") int accountid)
+			@PathVariable("age") int age,@PathVariable("accountid") String accountid)
 	{
-		String data = us.CreateUser(id,name,age,accountid);
+		int accID = Integer.parseInt(accountid);
+		String data = us.CreateUser(id,name,age,accID);
 		if(data==null)
 		{
 			return new ResponseEntity<String>("Unable to create"+ name, HttpStatus.CONFLICT);
