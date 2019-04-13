@@ -2,11 +2,11 @@ pipeline {
   
   agent any
   
-  stages ('1. Checkout') {
+  stage ('1. Checkout') {
     echo 'Checkout'
   }
   
-  stages ('2. Compile') {
+  stage ('2. Compile') {
     echo 'Compile'
   }
 }
