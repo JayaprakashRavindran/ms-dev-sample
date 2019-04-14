@@ -30,7 +30,7 @@ pipeline {
 
     stage ('4. Package') {
       steps {
-          bat 'mvn package verify'
+          bat 'mvn -Dmaven.test.skip=true package verify'
       }
     }
 
