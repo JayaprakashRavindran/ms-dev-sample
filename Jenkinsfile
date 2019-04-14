@@ -12,7 +12,13 @@ pipeline {
   
     stage ('2. Compile') {
       steps {
-         echo 'Compile'
+          mvn compile test-compile
+      }
+    }
+    
+    stage ('3. Unit Test') {
+      steps {
+          mvn test
       }
     }
   }
