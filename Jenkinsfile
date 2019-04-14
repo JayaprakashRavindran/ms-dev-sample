@@ -38,11 +38,11 @@ pipeline {
       steps {
           archiveArtifacts 'target/*.jar'
       }
-    }
+    }    
   }
     post {
         always {
-            junit 'target/surefire-reports/*.xml'
+            junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'
         }
     }
 }
