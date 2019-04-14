@@ -12,13 +12,13 @@ pipeline {
   
     stage ('2. Compile') {
       steps {
-          mvn compile test-compile
+          sh 'mvn compile test-compile'
       }
     }
     
     stage ('3. Unit Test') {
       steps {
-          mvn test
+          sh 'mvn test'
       }
     }
   }
