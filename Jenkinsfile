@@ -18,13 +18,25 @@ pipeline {
   
     stage ('2. Compile') {
       steps {
-          bat 'mvn compile test-compile'
+          bat 'mvn clean compile test-compile'
       }
     }
     
     stage ('3. Unit Test') {
       steps {
           bat 'mvn test'
+      }
+    }
+
+    stage ('4. Package') {
+      steps {
+          bat 'mvn package verify'
+      }
+    }
+
+    stage ('5. Archive Artifacts') {
+      steps {
+          archiveArtifacts 'target/*.jar'
       }
     }
   }
