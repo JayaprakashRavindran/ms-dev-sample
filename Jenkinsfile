@@ -5,11 +5,15 @@ pipeline {
   stages {
   
     stage ('1. Checkout') {
-      echo 'Checkout'
+      steps {
+        echo 'Checkout'
+      }
     }
   
     stage ('2. Compile') {
-      echo 'Compile'
+      steps {
+         echo 'Compile'
+      }
     }
   }
 }
