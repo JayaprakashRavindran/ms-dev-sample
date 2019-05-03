@@ -1,0 +1,8 @@
+com.techm.ms
+com.techm.ms.config
+com.techm.ms.exception
+com.techm.ms.model
+com.techm.ms.model.representation
+com.techm.ms.model.swagger
+com.techm.ms.resource
+com.techm.ms.service

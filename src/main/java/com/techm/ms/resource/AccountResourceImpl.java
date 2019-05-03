@@ -30,7 +30,7 @@ public class AccountResourceImpl implements AccountResource {
 	@Override
 	public Response findAllAccounts() {
 		List<Account> accounts = accountService.findAllAccounts();		
-		if (accounts == null) {
+		if (accounts == null) {				
 			return Response.noContent().build();
 		}		
 		Link link = Link.fromUri(baseUrl).rel("self").build();		

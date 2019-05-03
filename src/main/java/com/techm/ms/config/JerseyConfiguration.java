@@ -24,6 +24,7 @@ import io.swagger.jaxrs.config.BeanConfig;
 import io.swagger.jaxrs.listing.ApiListingResource;
 import io.swagger.jaxrs.listing.SwaggerSerializers;
 
+
 /**
  * This Class reads and sets all configuration related to Jersey
  */
