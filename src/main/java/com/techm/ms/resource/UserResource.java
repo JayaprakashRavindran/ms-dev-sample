@@ -6,4 +6,7 @@ package com.techm.ms.resource;
  */
 public interface UserResource {
 	
+	public String CreateUser(long id,String name, int age,int accountid);
+	public String GetUser(long Id);
+	
 }
