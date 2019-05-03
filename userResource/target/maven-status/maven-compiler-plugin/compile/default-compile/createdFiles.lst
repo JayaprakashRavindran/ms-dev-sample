@@ -1,0 +1,6 @@
+com\user\resource\userResource\model\User.class
+com\user\resource\userResource\model\UserService.class
+com\user\resource\userResource\errorMsg\errorMsgApp.class
+com\user\resource\userResource\controller\userContorller.class
+com\user\resource\userResource\UserResourceApplication.class
+com\user\resource\userResource\model\UserResourceTM.class
